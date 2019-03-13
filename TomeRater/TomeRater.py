@@ -13,7 +13,7 @@ class User:
 		print("Email has been updated!")
 		
 	def __repr__(self):
-		return "User: {user_name}, email: {email}, books read: {no_books}".format(user_name = self.name, email = self.email, no_books = self.books) 
+		return "User: {user_name}, email: {email}, books read: {no_books}".format(user_name = self.name, email = self.email, no_books = len(self.books)) 
 
 	def __eq__(self, other_user):
 		if self.name == other_user.name and self.mail == other_user.mail:
