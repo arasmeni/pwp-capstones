@@ -1,20 +1,24 @@
-#useer class
+#This is the user class
 class User:
 	def __init__(self, name, email):
 		self.name = name
 		self.email = email
 		self.books = {}
 		
+	#email associted with the user
 	def get_email(self):
 		return self.email
 		
+	#Take new email and changes the email associated with the user
 	def change_email(self, address):
 		self.email = address
 		print("Email has been updated!")
 		
+	# Printing user information
 	def __repr__(self):
-		return "User: {user_name}, email: {email}, books read: {no_books}".format(user_name = self.name, email = self.email, no_books = len(self.books)) 
+		return "User: {user_name}, email: {email}, books read: {no_books}".format(user_name = self.name, email = self.email, no_books = len(self.books))
 
+	#comparison betweein users
 	def __eq__(self, other_user):
 		if self.name == other_user.name and self.mail == other_user.mail:
 			other_user = self.name
@@ -24,7 +28,7 @@ class User:
 		self.rating = rating
 		self.books[book] = rating
 		
-		
+	#getting average rating	
 	def get_average_rating(self):
 		total = 0
 		rating_samples = []
@@ -37,24 +41,30 @@ class User:
 		
 	
 		
-#Book class
+#This is a Book class
 class Book:
+
+	#Initialzation of Book class
 	def __init__(self, title, isbn):
 		self.title = title
 		self.isbn = isbn
 		self.ratings = []
 	
+	#getting title of the book
 	def get_title(self):
 	    return self.title
 		
+	#getting isbn of the book
 	def get_isbn(self):
 	    return self.isbn
 		
+	#sitting new isbn 
 	def set_isbn(self, new_isbn):
 		self.isbn = new_isbn
 		print("The ISBN has been changed")
 		return self.isbn
 		
+	#adding the rating for specific book 
 	def add_rating(self, rating):
 		rating_range = [d/10 for d in range(41)]
 		if rating in rating_range or rating == None:
@@ -66,6 +76,7 @@ class Book:
 		if self.title == other_book.title and self.isbn == other_user.isbn:
 			other_book = self.title
 			
+	#calculating the average rating 
 	def get_average_rating(self):
 		new_ratings = []
 		total = 0
@@ -147,7 +158,7 @@ class TomeRater:
 	
 	
 	def print_catalog(self):
-		for book in self.books:
+		for book in self.books.keys():
 			print(book)
 		
 	def print_users(self):
